@@ -1,0 +1,32 @@
+<form (submit)="GenerateCard()">
+    <div>
+        <label for = "firstName">Имя</label>
+        <input type = "text" id = "firstName" name = "name" required placeholder="Введите ваше имя" [(ngModel)]="studentCard.firstName">
+    </div>
+    <div>
+        <label for = "lastName">Фамилию</label>
+        <input type ="text" id="lastName" name="lastName" required placeholder="Введите вашу фамилию" [(ngModel)]="studentCard.lastName">
+    </div>
+    <div>
+        <label for = "middleName">Отчество</label>
+        <input type = "text" id = "middleName" name = "middleName" required placeholder="Введите ваше отчество" #middleName>
+    </div>
+    <div>
+        <label for = "specialization">Специализация</label>
+        <input type = "text" id = "specialization" name = "specialization" required placeholder="Введите вашу специализацию" #specialization>
+    </div>
+    <input type="submit" value="Generate card">
+</form>
+
+<div *ngIf="cardGenerated">
+    <h2>Студенческий билет</h2>
+    <div>
+        <img src="assets/university-logo.png" alt="Логотип университета">
+        <h3>Название Университета</h3>
+        <p>Имя: {{studentCard.firstName}}</p>
+        <p>Фамилия: {{studentCard.lastName}}</p>
+        <p>Отчество: {{studentCard.middleName}}</p>
+        <p>Специальность: {{studentCard.specialization}}</p>
+        <p>Год поступления: {{studentCard.year}}</p>
+    </div>
+</div>
